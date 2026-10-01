@@ -1,0 +1,158 @@
+/* -- usando [ * ] para atribuir uma configuração global no CSS --*/
+*{
+    margin:0; /* margem */
+    padding:0; /*-- espaço entre o conteudo do container e a borda --*/
+}
+
+:root{
+    /* pseudo-classe -> adicina variaves globais__
+    variaveis comção com [ -- ] 
+    * para usar uma variavel usa [ var( " nome da variavel ") ]
+    */
+--cor-destaque: white ;
+--cor-secundaria: ;
+--cor-texto: black ;
+--cor-bt: rgb(78, 77, 77) ;
+--cor-caulc: ;
+--gradiente-1: black;
+--gradiente-2: green;
+}
+
+
+
+
+
+
+body{
+    background-image: linear-gradient(to top, var(--gradiente-1),var(--gradiente-2));
+    height: 100vh;} /*-- altura [ % | "vh" -> toda a tela ] --*/
+    /*
+    imagem do fundo do site:__ 
+    linear-gradient( ) | radial-gradient( ) __
+    to [ direçao ], -> top | rhigt | left | bottom | [graus°],deg__ 
+    [cores separados por " , "]
+    */
+
+
+.grid_cabeçalho{
+    display: grid;
+    /*
+    display: [ tipo ]-> comoa o espaço do container se organiza__
+    | grid = Divide o container em grades__
+    | flex = Flexivel, organiza os itens em uma unica direção, horizontal e vertical__
+    | inline = Em linha, Ocupa apenas o espaço necessário para o seu conteúdo, Não aceita alterações de largura (width) ou altura (height).__
+    | block = Ocupa 100% da largura disponível na linha. Força uma quebra de linha antes e depois dele.
+    */
+    grid-template-columns: repeat(2, 1fr);
+    /*
+    grid-[ template | auto ]-[ columns | rows ]__
+    template = voce define aquantidade | auto = criado automaticamente pelo navegador__
+    colums = colunas | rows = linhas__
+    *Para definir a quantidade de colunas " repeat (2, 1fr) " -> repeat = repetir ( ) | 2, 1fr = 2 colunas de tamanhos iguais__
+    *Para definir o tamanho usa " px " [ pixels ]
+    */
+     font-size: 30px;
+}
+.titulo{
+   display:flex;
+    text-align: left;/*-- alinha o texto na linha " horizontal "-> [ left | center | rhigt ]*/
+ align-items: end;/*-- alinha o texto na linha " vertical "-> [ top | center | end ]*/
+}
+
+.config{
+    display: flex;
+    /*-- algumas tags cem quebra de linha automatica [ display: inline; ] retira elas --*/
+justify-content: right;/*-- alinha itens de um container em bloco na " horizontal " -> [ left | center | rhigt ]*/
+align-items: end;
+}
+.letra{
+    color: var( --cor-destaque);
+    font-size: 80px;
+    margin-bottom: -15px; /*-- uma margem negativa, força o testo a ir para direção desejada */
+   
+}
+.centro{
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 100px;
+}
+.calculadora{
+background-color: rgb(39, 39, 39);
+border: solid, 9px, gray;/*-- borda -> tipo , tamanho em pixels[ px ] , cor__
+*tipos de borda:
+• solid: Uma linha contínua e sólida.
+• dashed: Uma linha tracejada.
+• dotted: Uma linha pontilhada.
+• double: Duas linhas paralelas.
+• groove: Aparência entalhada ou escavada em 3D.
+• ridge: Aparência em relevo ou saltada em 3D (o oposto de groove).
+• inset: Dá a impressão de que o elemento está em baixo relevo na tela.
+• outset: Dá a impressão de que o elemento está em alto relevo (um botão saltado).
+• none: Sem borda (invisível).
+• hidden: Sem borda, usado para ocultar bordas em tabelas quando há conflito com outras adjacentes
+*/
+height: 500px; /*altura*/
+width:300px; /*largura*/
+border-radius: 3%; /*Cria cantos arredondados nas bordas.[ em % ou pixels ]*/
+}
+.superior{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:3px;  /*espaços entre itens*/
+}
+.visor{
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 15px;
+}
+.limpar{
+    background-color: brown;
+    width: 70px;
+    height: 70px;
+     margin-top: 30px;
+     border-radius: 12px;
+}
+.teclado{
+    display: grid;
+    justify-content: center;
+    padding-top: 45px;
+    gap:10px;
+    width: 100%;
+}
+.tlc-sup{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap:15px;
+}
+.tlc-mid{
+    display: grid;
+    padding-top: 15px;
+    grid-template-columns: repeat(3, 51fr);
+    align-items: center;
+    gap:10px;
+justify-self: center;/*serve para centralizar um elemento filho horizontalmente dentro da sua própria célula (ou área) do Grid pai.*/ 
+}
+.tlc-inf{
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(2, 1fr);
+}
+.botao,.botao-0{
+    width: 50px;
+    height: 50px;
+     background-color: var(--cor-bt);
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.botao-0{
+    width: 160px;
+    border-radius: 15px;
+    background-color: rgb(255, 200, 80);
+}
